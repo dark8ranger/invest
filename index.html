@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="标普500、纳指100指数基金与BTC、ETH加密货币K线看板">
+  <title>invest · 市场看板</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#0b1017;color:#e8edf5;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}a{color:#8cb9ff;text-decoration:none}a:hover{text-decoration:underline}button{font:inherit}header{border-bottom:1px solid #253040;background:#101722}.top{max-width:1600px;margin:auto;padding:24px 32px;display:flex;align-items:center;gap:22px}.brand{font-size:28px;font-weight:750;letter-spacing:-1px;color:#fff}.brand span{color:#72e0be}.top p{margin:0;color:#94a4b8;font-size:14px}.tag{margin-left:auto;border:1px solid #334155;padding:4px 12px;border-radius:6px;color:#c2cfde;font-size:13px}main{max-width:1600px;margin:auto;padding:30px 32px 16px}.intro{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:34px}h1{font-size:26px;margin:0 0 6px;font-weight:650}.intro p{margin:0;color:#94a4b8;font-size:14px}.periods{display:flex;gap:4px;padding:5px;background:#141e2c;border:1px solid #283447;border-radius:9px;flex-shrink:0}button{border:0;cursor:pointer;border-radius:5px;color:#adbdd0;background:transparent;padding:7px 15px;font-size:14px}button[aria-pressed="true"]{background:#d6f8eb;color:#143b32;font-weight:650}button:hover{background:#294239;color:#fff}button:focus-visible,a:focus-visible{outline:2px solid #72e0be;outline-offset:4px}section{margin-bottom:34px}.section-heading{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}h2{font-size:19px;margin:0}.section-heading span{color:#899ab1;font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.card{min-width:0;background:#101722;border:1px solid #273347;border-radius:12px;overflow:hidden}.card-head{display:flex;gap:12px;align-items:center;padding:17px 20px;border-bottom:1px solid #263245}.badge{width:40px;height:40px;display:grid;place-items:center;background:#1e314a;color:#a4ceff;border-radius:10px;font-size:13px;font-weight:700}.crypto .badge{background:#3d3020;color:#ffc577}.card h3{font-size:17px;margin:0}.symbol{font-size:12px;letter-spacing:.4px;color:#8e9fb5}.card-head>a{margin-left:auto;font-size:13px;white-space:nowrap}.chart{height:410px;width:100%;position:relative}.tradingview-widget-container{height:100%;width:100%}.tradingview-widget-container__widget{height:calc(100% - 32px);width:100%}.tradingview-widget-copyright{height:32px;text-align:center;font-size:12px;line-height:32px}.notice{margin:0;padding:10px 20px;color:#8e9fb5;font-size:12px;border-top:1px solid #263245}.error{padding:70px 24px;text-align:center;color:#b4c1d3}.error button{display:block;margin:16px auto;background:#294239;color:#fff}footer{max-width:1600px;margin:0 auto;padding:0 32px 28px;color:#8898ad;font-size:12px}noscript{display:block;padding:20px;background:#3d3020} @media(min-width:1600px){.chart{height:460px}}@media(max-width:800px){.top{padding:18px 20px}.tag{display:none}main{padding:24px 16px 8px}.intro{align-items:flex-start;flex-direction:column;gap:18px;margin-bottom:26px}.grid{grid-template-columns:1fr;gap:16px}.chart{height:400px}.section-heading{flex-wrap:wrap;gap:6px 12px}.card-head{padding:14px}.card-head>a{font-size:12px}footer{padding:0 16px 24px}.periods{width:100%}.periods button{flex:1;padding:8px}.top p{font-size:13px}}@media(prefers-reduced-motion:no-preference){button{transition:background .15s}}
+  </style>
+</head>
+<body>
+  <header><div class="top"><a class="brand" href="./index.html">invest<span>.</span></a><p>市场看板 / Market overview</p><span class="tag">USD · 美元计价</span></div></header>
+  <main>
+    <div class="intro"><div><h1>关注市场，读懂走势</h1><p>指数基金与加密货币 · K 线概览</p></div><div class="periods" role="group" aria-label="所有图表的K线周期"><button data-interval="60" aria-pressed="false">1小时</button><button data-interval="D" aria-pressed="true">日线</button><button data-interval="W" aria-pressed="false">周线</button><button data-interval="M" aria-pressed="false">月线</button></div></div>
+    <noscript>请启用 JavaScript 以加载 K 线图，也可使用各卡片的“查看行情”链接。</noscript>
+    <section aria-labelledby="funds-title"><div class="section-heading"><h2 id="funds-title">指数基金</h2><span>美股 ETF · 交易时段以交易所为准</span></div><div class="grid">
+      <article class="card" data-symbol="AMEX:SPY" data-name="标普500 ETF"><div class="card-head"><div class="badge" aria-hidden="true">500</div><div><h3>标普 500</h3><div class="symbol">SPY · SPDR S&P 500 ETF</div></div><a href="https://www.tradingview.com/symbols/AMEX-SPY/" target="_blank" rel="noopener noreferrer">查看行情 ↗</a></div><div class="chart" aria-label="标普500 ETF K线图"></div><p class="notice">SPY 跟踪标普 500 指数；图中价格为 ETF 份额价格。</p></article>
+      <article class="card" data-symbol="NASDAQ:QQQ" data-name="纳指100 ETF"><div class="card-head"><div class="badge" aria-hidden="true">100</div><div><h3>纳指 100</h3><div class="symbol">QQQ · Invesco QQQ ETF</div></div><a href="https://www.tradingview.com/symbols/NASDAQ-QQQ/" target="_blank" rel="noopener noreferrer">查看行情 ↗</a></div><div class="chart" aria-label="纳指100 ETF K线图"></div><p class="notice">QQQ 跟踪纳斯达克 100 指数；图中价格为 ETF 份额价格。</p></article>
+    </div></section>
+    <section class="crypto" aria-labelledby="crypto-title"><div class="section-heading"><h2 id="crypto-title">加密货币</h2><span>Coinbase · 24 / 7 交易</span></div><div class="grid">
+      <article class="card" data-symbol="COINBASE:BTCUSD" data-name="比特币"><div class="card-head"><div class="badge" aria-hidden="true">₿</div><div><h3>比特币</h3><div class="symbol">BTC / USD · Bitcoin</div></div><a href="https://www.tradingview.com/symbols/BTCUSD/?exchange=COINBASE" target="_blank" rel="noopener noreferrer">查看行情 ↗</a></div><div class="chart" aria-label="比特币K线图"></div><p class="notice">Coinbase 美元现货交易对。</p></article>
+      <article class="card" data-symbol="COINBASE:ETHUSD" data-name="以太坊"><div class="card-head"><div class="badge" aria-hidden="true">Ξ</div><div><h3>以太坊</h3><div class="symbol">ETH / USD · Ethereum</div></div><a href="https://www.tradingview.com/symbols/ETHUSD/?exchange=COINBASE" target="_blank" rel="noopener noreferrer">查看行情 ↗</a></div><div class="chart" aria-label="以太坊K线图"></div><p class="notice">Coinbase 美元现货交易对。</p></article>
+    </div></section>
+  </main>
+  <footer>图表由 TradingView 提供，需联网加载；行情可能存在延迟。若图表未显示，可通过“查看行情”访问数据源。图表时区：Asia/Shanghai。</footer>
+  <script>
+    let interval = 'D';
+    function renderChart(card) {
+      const host = card.querySelector('.chart');
+      const wrapper = document.createElement('div');
+      wrapper.className = 'tradingview-widget-container';
+      const chart = document.createElement('div');
+      chart.className = 'tradingview-widget-container__widget';
+      const attribution = document.createElement('div');
+      attribution.className = 'tradingview-widget-copyright';
+      const link = document.createElement('a');
+      link.href = card.querySelector('.card-head a').href;
+      link.target = '_blank'; link.rel = 'noopener nofollow';
+      link.textContent = card.dataset.name + ' chart';
+      attribution.append(link, ' by TradingView');
+      const script = document.createElement('script');
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+      script.async = true;
+      script.textContent = JSON.stringify({autosize:true,symbol:card.dataset.symbol,interval,timezone:'Asia/Shanghai',theme:'dark',style:'1',locale:'zh_CN',allow_symbol_change:false,hide_top_toolbar:false,hide_side_toolbar:true,hide_legend:false,hide_volume:false,calendar:false,save_image:true,withdateranges:true,backgroundColor:'#101722',gridColor:'rgba(148,163,184,0.08)',support_host:'https://www.tradingview.com'});
+      script.onerror = () => {
+        if (!wrapper.isConnected) return;
+        const error = document.createElement('div');
+        error.className = 'error'; error.setAttribute('role','alert');
+        error.textContent = '图表暂时无法加载，请检查网络连接。';
+        const retry = document.createElement('button');
+        retry.textContent = '重新加载'; retry.onclick = () => renderChart(card);
+        error.append(retry); host.replaceChildren(error);
+      };
+      wrapper.append(chart, attribution, script);
+      host.replaceChildren(wrapper);
+    }
+    const cards = [...document.querySelectorAll('.card')];
+    document.querySelectorAll('[data-interval]').forEach(button => {
+      button.addEventListener('click', () => {
+        if(interval === button.dataset.interval) return;
+        interval = button.dataset.interval;
+        document.querySelectorAll('[data-interval]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        cards.forEach(renderChart);
+      });
+    });
+    cards.forEach(renderChart);
+  </script>
+</body>
+</html>
