@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "invest-nav",
+  "compatibility_date": "2026-10-17",
+  "assets": {
+    "directory": "./dist"
+  },
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "invest.maomaoshen.cc",
+      "custom_domain": true
+    }
+  ]
+}

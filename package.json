@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node --check app.js && node --check data.js && node --check kline.js",
-    "dev": "python3 -m http.server 5173"
+    "dev": "python3 -m http.server 5173",
+    "deploy": "npm run build && npx --registry=https://registry.npmjs.org --yes wrangler@4.151.1 deploy"
   },
   "engines": {
     "node": ">=20"

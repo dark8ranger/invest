@@ -75,3 +75,16 @@ npm run build
 ```
 
 `dist/` 仅包含站点文件与图标，不发布 Git 目录、文档或其他本地文件。行情与历史 K 线由访问者浏览器直接请求腾讯财经，不依赖 Cloudflare 后端。
+
+
+## Cloudflare 静态 Worker 发布
+
+`wrangler.jsonc` 已指定静态发布目录 `dist`，以及自定义域名 `invest.maomaoshen.cc`，服务名称为 `invest-nav`。网站仍为纯前端，没有服务端业务代码。
+
+```sh
+npm run deploy
+```
+
+该命令构建静态资源并通过 Cloudflare 官方 Wrangler 发布，须预先登录拥有 Worker 发布及自定义域名管理权限的账号。它只发布 `dist` 目录，不上传源仓库或本机凭据。域名绑定与 HTTPS 由 Cloudflare 管理。
+
+此命令可用于后续手动部署。GitHub 推送自动部署需要另行完成 Cloudflare 的 GitHub 仓库集成，单独的 CLI 登录不会启用自动部署。
