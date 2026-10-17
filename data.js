@@ -1,0 +1,27 @@
+/* All directory content is local. No API, remote font or remote icon dependency. */
+window.INVEST_RESOURCES = [
+ ['tradingview','TradingView','全球市场图表与技术分析平台，用图表发现市场的更多可能。','https://www.tradingview.com/','tools','图表分析','TV','#202633',['图表','技术分析','美股','比特币'],true],
+ ['yahoo','Yahoo Finance','股票行情、公司财报与财经资讯，一站式了解全球市场。','https://finance.yahoo.com/','stocks','行情资讯','y!','#6001d2',['行情','财报','ETF'],true],
+ ['coingecko','CoinGecko','加密资产价格、市值与项目资料，探索数字资产市场。','https://www.coingecko.com/','crypto','行情数据','◉','#75a93b',['加密货币','比特币','行情'],true],
+ ['finviz','Finviz','可视化股票筛选器与市场热力图，快速梳理美股市场。','https://finviz.com/','stocks','选股研究','Fv','#426ae3',['选股','热力图','美股'],true],
+ ['defillama','DefiLlama','追踪 DeFi 协议锁仓量、稳定币与链上生态数据。','https://defillama.com/','crypto','链上分析','🦙','#4c80cf',['DeFi','链上','数据'],true],
+ ['investing','Investing.com','财经资讯与经济日历，关注影响市场的重要事件。','https://www.investing.com/','tools','经济日历','in','#e99b2d',['宏观','经济日历','新闻'],true],
+ ['seekingalpha','Seeking Alpha','阅读公司分析、财报电话会记录与投资研究观点。','https://seekingalpha.com/','stocks','选股研究','α','#ec8b29',['财报','研究','ETF'],false],
+ ['coinmarketcap','CoinMarketCap','浏览加密资产排名、交易量和数字货币市场资料。','https://coinmarketcap.com/','crypto','行情数据','M','#3f64dc',['比特币','行情','市值'],false],
+ ['fred','FRED','圣路易斯联储经济数据库，探索利率、通胀与宏观趋势。','https://fred.stlouisfed.org/','tools','宏观数据','F','#28738a',['宏观','利率','数据'],true],
+ ['ibkr','盈透证券','Interactive Brokers 官方入口，了解交易产品与平台。','https://www.interactivebrokers.com/','stocks','券商平台','IB','#d93643',['券商','交易'],false],
+ ['schwab','嘉信理财','Charles Schwab 官方入口，了解投资账户与研究资源。','https://www.schwab.com/','stocks','券商平台','sch','#1674ba',['券商','投资'],false],
+ ['sec','SEC EDGAR','美国证券交易委员会官方披露库，查询上市公司原始财报。','https://www.sec.gov/edgar/search/','stocks','选股研究','SEC','#395772',['财报','公告','监管'],false],
+ ['investor','Investor.gov','美国 SEC 投资者教育网站，从基础知识建立投资认知。','https://www.investor.gov/','stocks','学习教育','i','#315c94',['入门','学习','ETF'],false],
+ ['etf','ETF.com','ETF 资料与研究入口，了解基金结构和投资主题。','https://www.etf.com/','stocks','选股研究','ETF','#235c44',['ETF','基金','研究'],false],
+ ['bitcoin','Bitcoin.org','比特币开源项目介绍，了解基本原理与钱包知识。','https://bitcoin.org/zh_CN/','crypto','学习教育','₿','#ee9d27',['比特币','入门','学习'],false],
+ ['ethereum','Ethereum','以太坊官方学习入口，了解钱包、应用与区块链技术。','https://ethereum.org/zh/','crypto','学习教育','♦','#7686b8',['以太坊','学习','Web3'],false],
+ ['etherscan','Etherscan','以太坊区块浏览器，查询交易记录、地址与智能合约。','https://etherscan.io/','crypto','链上分析','E','#6877a4',['以太坊','区块浏览器','链上'],false],
+ ['dune','Dune','通过社区数据看板探索链上活动与协议使用情况。','https://dune.com/','crypto','链上分析','◒','#e8795c',['链上','数据','DeFi'],false],
+ ['coinbase','Coinbase','数字资产平台官方入口，查看产品与加密学习资源。','https://www.coinbase.com/','crypto','交易平台','C','#1652f0',['交易','加密货币'],false],
+ ['binance','Binance','数字资产交易平台官方入口与加密知识学习资源。','https://www.binance.com/','crypto','交易平台','◇','#c49a19',['交易','加密货币'],false],
+ ['treasury','美国财政部','查询美国国债收益率和财政部公布的官方数据。','https://home.treasury.gov/','tools','宏观数据','US','#486585',['国债','利率','宏观'],false],
+ ['fed','美联储','关注货币政策声明、议息会议日程与官方研究。','https://www.federalreserve.gov/','tools','宏观数据','FR','#385d77',['宏观','利率','美联储'],false],
+ ['cme','CME Group','了解期货与期权市场，查阅交易所产品及教育资源。','https://www.cmegroup.com/','tools','衍生品','CME','#1366ad',['期货','期权','利率'],false],
+ ['calculator','复利计算器','使用 SEC 投资者教育工具，估算长期储蓄与复利增长。','https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator','tools','实用工具','%','#8a59bd',['复利','计算器','长期投资'],false]
+].map(([id,name,description,url,category,group,logo,color,tags,featured])=>({id,name,description,url,category,group,logo,color,tags,featured}));
