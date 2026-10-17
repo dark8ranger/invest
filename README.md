@@ -95,3 +95,5 @@ npm run deploy
 首页包含发布商 `ca-pub-2552029975394641` 的广告脚本和 `google-adsense-account` 元标记。构建时发布 `ads.txt`、`robots.txt`，允许 Google 广告抓取器访问。
 
 AdSense 登记的是主域名 `maomaoshen.cc`，因此主域名也必须可访问并提供匹配的验证内容。仅在 `invest.maomaoshen.cc` 发布代码不能确认主域名验证成功。技术验证通过后，网站能否展示广告仍以 Google 的审核结果为准。
+
+主域名 `maomaoshen.cc` 与 `invest.maomaoshen.cc` 使用同一个静态 Worker，均展示完整投资导航。AdSense 后台登记主域名时，可以使用元标记、广告代码或主域名根目录的 `ads.txt` 验证。

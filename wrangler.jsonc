@@ -10,6 +10,10 @@
     {
       "pattern": "invest.maomaoshen.cc",
       "custom_domain": true
+    },
+    {
+      "pattern": "maomaoshen.cc",
+      "custom_domain": true
     }
   ]
 }
