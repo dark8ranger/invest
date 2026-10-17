@@ -88,3 +88,10 @@ npm run deploy
 该命令构建静态资源并通过 Cloudflare 官方 Wrangler 发布，须预先登录拥有 Worker 发布及自定义域名管理权限的账号。它只发布 `dist` 目录，不上传源仓库或本机凭据。域名绑定与 HTTPS 由 Cloudflare 管理。
 
 此命令可用于后续手动部署。GitHub 推送自动部署需要另行完成 Cloudflare 的 GitHub 仓库集成，单独的 CLI 登录不会启用自动部署。
+
+
+## AdSense 验证
+
+首页包含发布商 `ca-pub-2552029975394641` 的广告脚本和 `google-adsense-account` 元标记。构建时发布 `ads.txt`、`robots.txt`，允许 Google 广告抓取器访问。
+
+AdSense 登记的是主域名 `maomaoshen.cc`，因此主域名也必须可访问并提供匹配的验证内容。仅在 `invest.maomaoshen.cc` 发布代码不能确认主域名验证成功。技术验证通过后，网站能否展示广告仍以 Google 的审核结果为准。
