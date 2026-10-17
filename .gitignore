@@ -2,3 +2,7 @@
 node_modules/
 .playwright/
 test-results/
+dist/
+.wrangler/
+.env
+.env.*
