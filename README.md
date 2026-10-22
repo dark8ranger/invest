@@ -97,3 +97,7 @@ npm run deploy
 AdSense 登记的是主域名 `maomaoshen.cc`，因此主域名也必须可访问并提供匹配的验证内容。仅在 `invest.maomaoshen.cc` 发布代码不能确认主域名验证成功。技术验证通过后，网站能否展示广告仍以 Google 的审核结果为准。
 
 主域名 `maomaoshen.cc` 与 `invest.maomaoshen.cc` 使用同一个静态 Worker，均展示完整投资导航。AdSense 后台登记主域名时，可以使用元标记、广告代码或主域名根目录的 `ads.txt` 验证。
+
+## 加密货币行情
+
+加密货币页搜索框下展示 BTC/USDT、ETH/USDT 最新价格、24 小时涨跌幅和最近 90 天日 K 线（UTC 日界线）。`crypto.js` 直接请求 Binance 公开市场数据，无需 API 密钥；价格每分钟刷新，K 线每五分钟更新，支持手动刷新。数据源不可用时显示错误，保留原值及时间。`kline.js` 复用本地 SVG 绘制和键盘/悬停交互。

@@ -13,10 +13,10 @@
   const cutoff=new Date(unique.at(-1).date+'T00:00:00Z');cutoff.setUTCFullYear(cutoff.getUTCFullYear()-1);
   return unique.filter(bar=>bar.date>=cutoff.toISOString().slice(0,10));
  }
- function draw(id,bars){
+ function draw(id,bars,{name=id==='spx'?'标普 500':'纳斯达克 100',period='最近一年',unit='个交易日'}={}){
   const host=document.getElementById(id+'-chart');
   const details=document.createElement('p');details.className='kline-details';
-  const svg=svgElement('svg',{viewBox:'0 0 800 280',role:'img',tabindex:'0','aria-label':(id==='spx'?'标普 500':'纳斯达克 100')+'最近一年日K线，左右方向键查看每日开高低收'});
+  const svg=svgElement('svg',{viewBox:'0 0 800 280',role:'img',tabindex:'0','aria-label':name+period+'日K线，左右方向键查看每日开高低收'});
   const left=12,right=720,top=12,bottom=240,width=right-left,height=bottom-top;
   const low=Math.min(...bars.map(b=>b.low)),high=Math.max(...bars.map(b=>b.high)),padding=(high-low)*.07||1,min=low-padding,max=high+padding;
   const y=value=>top+(max-value)/(max-min)*height,step=width/bars.length;
@@ -35,7 +35,7 @@
   svg.addEventListener('pointermove',event=>{const rect=svg.getBoundingClientRect();show(Math.floor(((event.clientX-rect.left)/rect.width*800-left)/step));});
   svg.addEventListener('pointerleave',()=>show(bars.length-1,false));
   svg.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();show(selected+(event.key==='ArrowRight'?1:-1));}});
-  const range=document.createElement('p');range.className='kline-range';range.textContent='最近一年 · 日 K · '+bars.length+' 个交易日 · '+bars[0].date+' — '+bars.at(-1).date;
+  const range=document.createElement('p');range.className='kline-range';range.textContent=period+' · 日 K · '+bars.length+' '+unit+' · '+bars[0].date+' — '+bars.at(-1).date;
   host.replaceChildren(details,svg,range);show(selected,false);
  }
  function load(id,symbol,force=false){
@@ -51,5 +51,5 @@
   const timeout=setTimeout(()=>finish('历史行情加载超时，请点击“刷新行情”重试。'),15000);
   document.head.append(script);
  }
- window.InvestCharts={load(force=false){load('spx','usINX',force);load('ndx','usNDX',force);}};
+ window.InvestCharts={draw,load(force=false){load('spx','usINX',force);load('ndx','usNDX',force);}};
 })();
