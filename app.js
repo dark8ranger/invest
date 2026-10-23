@@ -52,6 +52,7 @@
   const panel=$('#market-overview');panel.hidden=view!=='stocks';
   if(panel.hidden){clearInterval(marketInterval);marketInterval=null;return;}
   window.InvestCharts.load(force);
+  window.InvestVix.load(force);
   if(force || marketInterval===null)updateMarket();
   if(marketInterval===null)marketInterval=setInterval(()=>{if(!document.hidden)updateMarket();},60000);
  }
