@@ -5,7 +5,7 @@
   "description": "Independent frontend investment directory",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "check": "node --check app.js && node --check data.js && node --check kline.js && node --check crypto.js && node --check vix.js",
+    "check": "node --check app.js && node --check data.js && node --check kline.js && node --check crypto.js && node --check vix.js && node --check fx.js",
     "dev": "python3 -m http.server 5173",
     "deploy": "npm run build && npx --registry=https://registry.npmjs.org --yes wrangler@4.151.1 deploy"
   },

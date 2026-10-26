@@ -46,7 +46,7 @@
   $('#section-title').textContent=query?'搜索结果':view==='all'?'精选资源':titles[view];
   $('#empty-state').hidden=list.length>0;$('#empty-message').textContent='换个关键词或分类，再试一次。';
  }
- function navigate(){const hash=location.hash.slice(1);view=Object.keys(hashes).find(key=>hashes[key]===hash)||'all';filter='全部';query='';$('#search').value='';$('#breadcrumb').textContent=titles[view];document.querySelectorAll('[data-view]').forEach(a=>{a.classList.toggle('active',a.dataset.view===view);if(a.dataset.view===view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});$('#sidebar').classList.remove('open');$('#menu-toggle').setAttribute('aria-expanded','false');renderFilters();render();renderMarket();window.InvestCrypto.setActive(view==='crypto');}
+ function navigate(){const hash=location.hash.slice(1);view=Object.keys(hashes).find(key=>hashes[key]===hash)||'all';filter='全部';query='';$('#search').value='';$('#breadcrumb').textContent=titles[view];document.querySelectorAll('[data-view]').forEach(a=>{a.classList.toggle('active',a.dataset.view===view);if(a.dataset.view===view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});$('#sidebar').classList.remove('open');$('#menu-toggle').setAttribute('aria-expanded','false');renderFilters();render();renderMarket();window.InvestCrypto.setActive(view==='crypto');window.InvestFx.setActive(view==='tools');}
  let marketInterval=null, marketPending=false;
  function renderMarket(force=false){
   const panel=$('#market-overview');panel.hidden=view!=='stocks';

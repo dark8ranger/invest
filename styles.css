@@ -52,3 +52,12 @@
 @media(max-width:900px){.market-grid{grid-template-columns:1fr}}
 
 .vix-card{margin-top:18px}.vix-card .kline-chart{max-width:1100px;margin:auto}
+
+.fx-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}
+.fx-card{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:20px;min-width:0}
+.fx-flags{display:flex;align-items:center;gap:8px;margin-bottom:15px}.fx-flag{font-size:26px;line-height:1.2;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}.fx-direction{color:var(--muted);font-size:15px}.fx-region{font-size:9px;color:var(--muted);margin-left:auto;white-space:nowrap}
+.fx-card h3{font-size:14px;margin:0 0 6px;font-weight:650}.fx-pair{display:flex;align-items:center;justify-content:space-between;gap:5px;font-size:10px;color:var(--muted);margin:0 0 12px}
+.fx-number{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}.fx-number strong{font-size:28px;font-weight:700;letter-spacing:-.5px;font-variant-numeric:tabular-nums}.fx-number>span{font-size:10px;color:var(--muted)}.fx-date{font-size:9px;color:var(--muted);margin:10px 0 0}
+@media(max-width:1250px){.fx-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:450px){.fx-grid{gap:10px}.fx-card{padding:15px 12px}.fx-flags{gap:5px}.fx-flag{font-size:22px}.fx-region{font-size:8px}.fx-number strong{font-size:25px}.fx-card h3{font-size:12px}.fx-pair{font-size:9px}.fx-date{font-size:8px}}
+@media(max-width:340px){.fx-grid{grid-template-columns:1fr}}
