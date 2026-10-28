@@ -27,5 +27,5 @@
   }finally{pending=false;$('refresh-fx').disabled=false;}
  }
  $('refresh-fx').onclick=()=>refresh(true);
- window.InvestFx={setActive(value){active=value;$('fx-overview').hidden=!active;if(active)refresh();}};
+ window.InvestFx={setActive(value){active=value;$('fx-overview').hidden=!active;$('rates-overview').hidden=!active;if(active)refresh();}};
 })();

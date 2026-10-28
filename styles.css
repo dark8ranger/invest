@@ -61,3 +61,6 @@
 @media(max-width:1250px){.fx-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:450px){.fx-grid{gap:10px}.fx-card{padding:15px 12px}.fx-flags{gap:5px}.fx-flag{font-size:22px}.fx-region{font-size:8px}.fx-number strong{font-size:25px}.fx-card h3{font-size:12px}.fx-pair{font-size:9px}.fx-date{font-size:8px}}
 @media(max-width:340px){.fx-grid{grid-template-columns:1fr}}
+
+.rates-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}.rate-region{color:var(--muted);font-size:12px}.rate-kind{font-size:11px;color:var(--muted);margin:8px 0 18px;line-height:1.6}.rate-card .fx-number strong{font-size:30px}.rate-card .market-source{display:inline-block;margin-top:16px;font-size:11px}.rate-card .fx-date{font-size:11px}
+@media(max-width:1100px){.rates-grid{grid-template-columns:1fr}.rate-card .fx-number strong{font-size:28px}}
