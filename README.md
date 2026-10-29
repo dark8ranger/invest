@@ -124,3 +124,9 @@ npm run deploy
 ### 加密货币知识科普
 
 加密货币页搜索框下提供三篇站内静态文章：`articles/crypto-history.html`、`articles/keys-and-addresses.html`、`articles/hot-and-cold-wallets.html`。包含历史时间线、密钥派生流程、按链区分的地址生成规则、冷热钱包签名流程及官方参考资料。所有图示使用本地 HTML/CSS，无远程图片依赖；文章无需 JavaScript 即可阅读，不收集或生成真实助记词和私钥。构建时将 `articles/` 目录复制到发布目录。
+
+### 爆仓热力图
+
+加密货币页搜索框下新增按金额分配面积的矩形热力图，以及 1/4/12/24 小时窗口的已采集多空统计。`liquidation.js` 使用 Binance 官方市场 WebSocket `wss://fstream.binance.com/market/stream` 订阅 `!forceOrder@arr`，只统计 USDT/USDC 计价合约，以平均成交价乘累计成交数量计算推送订单快照金额。SELL 对应多头被强平，BUY 对应空头被强平。
+
+此公开流为每个交易对每秒最多一条的抽样快照，不能代表全市场爆仓额，也无法回补历史。仅在加密货币栏目开启连接，退出后关闭，重新进入或刷新清空记录。页面显式展示范围、采集开始时间与断线缺口；没有事件时不使用模拟数据。完整跨交易所聚合历史数据需要另行接入授权数据源。

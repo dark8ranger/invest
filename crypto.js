@@ -36,5 +36,5 @@
   finally{pending=false;$('refresh-crypto').disabled=false;}
  }
  $('refresh-crypto').onclick=()=>refresh(true);
- window.InvestCrypto={setActive(value){active=value;$('crypto-overview').hidden=!active;$('crypto-guides').hidden=!active;if(interval!==null){clearInterval(interval);interval=null;}if(active){refresh();interval=setInterval(()=>{if(!document.hidden)refresh();},60000);}}};
+ window.InvestCrypto={setActive(value){active=value;window.InvestLiquidation.setActive(value);$('crypto-overview').hidden=!active;$('crypto-guides').hidden=!active;if(interval!==null){clearInterval(interval);interval=null;}if(active){refresh();interval=setInterval(()=>{if(!document.hidden)refresh();},60000);}}};
 })();
