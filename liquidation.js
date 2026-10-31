@@ -1,6 +1,7 @@
 (() => {
  'use strict';
  const $=id=>document.getElementById(id), periods=[1,4,12,24];
+ const symbols=new Map(['BTC','ETH','SOL'].flatMap(coin=>['USDT','USDC'].map(quote=>[coin+quote,coin])));
  let active=false,socket=null,retry=null,timer=null,start=0,events=[],hours=24,connected=false;
  const money=n=>'$'+(n>=1e8?(n/1e8).toFixed(2)+'亿':n>=1e4?(n/1e4).toFixed(2)+'万':n.toLocaleString('en-US',{maximumFractionDigits:0}));
  function selected(h){const since=Date.now()-h*3600000;return events.filter(e=>e.time>=since);}
@@ -21,7 +22,7 @@
     const sum=items.reduce((s,r)=>s+r.total,0);let acc=0,i=0;while(i<items.length-1&&acc<sum/2){acc+=items[i++].total;}const ratio=acc/sum;
     if(w*1.6>=h){tile(items.slice(0,i),x,y,w*ratio,h);tile(items.slice(i),x+w*ratio,y,w*(1-ratio),h);}else{tile(items.slice(0,i),x,y,w,h*ratio);tile(items.slice(i),x,y+h*ratio,w,h*(1-ratio));}
    }
-   const top=rows.slice(0,29),rest=rows.slice(29);if(rest.length){const t=rest.reduce((a,r)=>({symbol:'其他',long:a.long+r.long,short:a.short+r.short,total:a.total+r.total}),{long:0,short:0,total:0});top.push(t);}tile(top,0,0,100,100);
+   tile(rows,0,0,100,100);
   }
   for(const h of periods){const t=totals(selected(h)),sum=t.long+t.short;$('liq-total-'+h).textContent=money(sum);$('liq-long-'+h).textContent=money(t.long);$('liq-short-'+h).textContent=money(t.short);$('liq-bar-'+h).style.width=(sum?t.long/sum*100:0)+'%';}
   const total=totals(list),sum=total.long+total.short;$('liq-detail').textContent=list.length?`所选窗口已采集 ${list.length} 条抽样事件 · 多单 ${sum?(total.long/sum*100).toFixed(1):0}% · 空单 ${sum?(total.short/sum*100).toFixed(1):0}%`:'尚无事件，不代表市场没有爆仓。';
@@ -31,8 +32,8 @@
   if(!active)return;
   $('liq-status').textContent='正在连接 Binance 公开爆仓流…';
   try{const ws=new WebSocket('wss://fstream.binance.com/market/stream');socket=ws;
-   ws.onopen=()=>{if(socket!==ws)return;ws.send(JSON.stringify({method:'SUBSCRIBE',params:['!forceOrder@arr'],id:1}));connected=true;$('liq-status').textContent='● 已连接 · Binance USDⓈ-M 抽样爆仓流';};
-   ws.onmessage=message=>{if(socket!==ws||!active)return;try{const raw=JSON.parse(message.data),payload=raw.data||raw;for(const data of Array.isArray(payload)?payload:[payload]){const o=data.o;if(data.e!=='forceOrder'||!o||!['BUY','SELL'].includes(o.S)||!/^[A-Z0-9_]+(?:USDT|USDC)$/.test(o.s))continue;const value=Number(o.ap)*Number(o.z),time=Number(o.T);if(!Number.isFinite(value)||value<=0||!Number.isFinite(time)||Math.abs(Date.now()-time)>86400000)continue;events.push({symbol:String(o.s),value,time,long:o.S==='SELL'});}render();}catch{}};
+   ws.onopen=()=>{if(socket!==ws)return;ws.send(JSON.stringify({method:'SUBSCRIBE',params:[...symbols.keys()].map(symbol=>symbol.toLowerCase()+'@forceOrder'),id:1}));connected=true;$('liq-status').textContent='● 已连接 · Binance USDⓈ-M 抽样爆仓流';};
+   ws.onmessage=message=>{if(socket!==ws||!active)return;try{const raw=JSON.parse(message.data),payload=raw.data||raw;for(const data of Array.isArray(payload)?payload:[payload]){const o=data.o;if(data.e!=='forceOrder'||!o||!['BUY','SELL'].includes(o.S)||!symbols.has(o.s))continue;const value=Number(o.ap)*Number(o.z),time=Number(o.T);if(!Number.isFinite(value)||value<=0||!Number.isFinite(time)||Math.abs(Date.now()-time)>86400000)continue;events.push({symbol:symbols.get(o.s),value,time,long:o.S==='SELL'});}render();}catch{}};
    ws.onerror=()=>{if(socket===ws)$('liq-status').textContent='连接异常，请检查网络；数据未更新。';};
    ws.onclose=()=>{if(socket!==ws)return;connected=false;$('liq-status').textContent='连接已断开，5 秒后重连；重连期间存在数据缺口。';if(active)retry=setTimeout(connect,5000);};
   }catch{$('liq-status').textContent='当前浏览器无法连接公开数据流。';}

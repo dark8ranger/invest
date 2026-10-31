@@ -127,6 +127,6 @@ npm run deploy
 
 ### 爆仓热力图
 
-加密货币页搜索框下新增按金额分配面积的矩形热力图，以及 1/4/12/24 小时窗口的已采集多空统计。`liquidation.js` 使用 Binance 官方市场 WebSocket `wss://fstream.binance.com/market/stream` 订阅 `!forceOrder@arr`，只统计 USDT/USDC 计价合约，以平均成交价乘累计成交数量计算推送订单快照金额。SELL 对应多头被强平，BUY 对应空头被强平。
+加密货币页搜索框下新增按金额分配面积的矩形热力图，以及 1/4/12/24 小时窗口的已采集多空统计。`liquidation.js` 使用 Binance 官方市场 WebSocket `wss://fstream.binance.com/market/stream` 仅订阅 BTC、ETH、SOL 的 USDT/USDC 合约 `@forceOrder` 事件，同币种合并为一个热力图方块；右侧各时间窗口的统计也仅包含这三种币，以平均成交价乘累计成交数量计算推送订单快照金额。SELL 对应多头被强平，BUY 对应空头被强平。
 
 此公开流为每个交易对每秒最多一条的抽样快照，不能代表全市场爆仓额，也无法回补历史。仅在加密货币栏目开启连接，退出后关闭，重新进入或刷新清空记录。页面显式展示范围、采集开始时间与断线缺口；没有事件时不使用模拟数据。完整跨交易所聚合历史数据需要另行接入授权数据源。
